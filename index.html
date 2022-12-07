@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laptops</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            border: 0;
+
+            background-image: url(https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHw%3D&w=1000&q=80);
+
+            background-position: 90% 60%;
+
+            background-attachment: fixed;
+
+            background-repeat: no-repeat;
+
+            background-size: cover;
+
+            
+
+        }
+
+        @media screen and (max-width: 575px) {
+
+            body {
+
+                font-size: 0.8rem;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="overflow-auto w-75 text-light position-absolute top-50 start-50 translate-middle">
+
+        <form method="GET" onsubmit="return validationToContinue()" name="myForm" id="myForm" class="form"
+
+            action="/confirmation.html">
+
+            <div class="p-1 p-lg-5 p-md-4 p-sm-3 container bg-light bg-opacity-50 rounded-4">
+
+                <div class="row">
+
+                    <div class="col-8">
+
+                        <lable for="select" class=" p-1 form-lable">Model:</lable>
+
+                        <select onchange="hardwareChanger()" class=" text-light mb-3 bg-transparent form-select"
+
+                            id="selectModel">
+
+                            <option name="myModel" value="295">B780</option>
+
+                            <option name="myModel" value="495">G780</option>
+
+                            <option name="myModel" value="595">S330</option>
+
+                            <option name="myModel" value="950">S380</option>
+
+                            <option name="myModel" value="995">S580</option>
+
+                        </select>
+
+                        <div class="form-check-inline mb-3">
+
+                            <lable class="form-lable d-block" for="">Software: </lable>
+
+                            <div class="form-check d-inline-block">
+
+                                <lable class="form-lable" for="software">MS 365 Personal</lable>
+
+                                <input onchange="isChecked()" id="software-rdio-1" value="65" name="software" type="radio"
+
+                                    class="form-check-inline discounts">
+
+                            </div>
+
+                            <div class="form-check d-inline-block">
+
+                                <lable class="form-lable" for="software">MS 365 Family</lable>
+
+                                <input onchange="isChecked()" id="software-rdio-2" value="99" name="software" type="radio"
+
+                                    class="form-check-inline discounts">
+
+                            </div>
+
+                            <div class="form-check d-inline-block">
+
+                                <lable class="form-lable" for="software">Office Home & Student</lable>
+
+                                <input onchange="isChecked()" id="software-rdio-3" value="95" name="software" type="radio"
+
+                                    class="form-check-inline discounts">
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="form-check-inline mb-3">
+
+                            <lable class="form-lable d-block" for="">Extra RAM: </lable>
+
+                            <div class="form-check d-inline-block">
+
+                                <lable class="form-lable" for="software">4GB</lable>
+
+                                <input onchange="isCheckedRAM()" id="software-rdio-1" value="45" name="ram" type="radio"
+
+                                    class="form-check-inline discounts">
+
+                            </div>
+
+                            <div class="form-check d-inline-block">
+
+                                <lable class="form-lable" for="software">8GB</lable>
+
+                                <input onchange="isCheckedRAM()" id="software-rdio-2" value="80" name="ram" type="radio"
+
+                                    class="form-check-inline discounts">
+
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="form-check">
+
+                            <input onchange="warranty()" type="checkbox" id="chk-box" class="form-check-input">
+
+                            <lable class="form-check-lable" for="chk-box">Do you want Warranty?</lable>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="form-check">
+
+                            <p class="d-inline "> Quantity: </p>
+
+                            <input min="0" onchange="quantity()" type="number"
+
+                                id="quantityInput" class="d-inline-block form-control" style="width:70px;">
+
+                        </div>
+
+                        <hr>
+
+                    </div>
+
+                    <div class="col-4">
+
+                        <p value="0" class="answers pb-5">Hardware: <span id="hardware">0</span>$</p>
+
+                        <p value="0" class="answers">Software: <span id="software">0</span>$</p>
+
+                        <p value="0" class="answers">RAM: <span id="ram">0</span>$</p>
+
+                        <p value="0" class="answers">Warranty: <span id="warranty">0</span>$</p>
+
+                    </div>
+
+                    <div class="finish-btns pt-3">
+
+                        <div onclick="rest()" class="finish-btn btn d-inline text-bg-light text-white m-2 p-2 w-auto">Rest</div>
+
+                        <input type="submit" value="Submit"
+
+                            class="finish-btn btn d-inline text-bg-light text-white w-auto">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="scripts.js">
+var totalCost = 0;
+
+    var hardwareValue = 0;
+
+    var softwareValue = 0;
+
+    var ramValue = 0;
+
+    var warrantyValue = 0;
+
+    var quantityValue = 0;
+
+   
+
+   
+
+   
+
+    function hardwareChanger() {
+
+        var hardware = document.getElementById("selectModel");
+
+        document.getElementById("hardware").innerHTML = hardware.value;
+
+        hardwareValue = hardware.value;
+
+    }
+
+    function isChecked() {
+
+        var ele = document.getElementsByName('software');
+
+        for (i = 0; i < ele.length; i++) {
+
+            if (ele[i].checked) {
+
+                softwareValue = ele[i].value;
+
+                document.getElementById("software").innerHTML
+
+                    = ele[i].value;
+
+            }
+
+        }
+
+    }
+
+    
+
+    function isCheckedRAM() {
+
+        var ele = document.getElementsByName('ram');
+
+        for (i = 0; i < ele.length; i++) {
+
+            if (ele[i].checked) {
+
+                ramValue = ele[i].value;
+
+                document.getElementById("ram").innerHTML
+
+                    = ele[i].value;
+
+            }
+
+        }
+
+    }
+
+    function warranty() {
+
+        if (document.getElementById("chk-box").checked) {
+
+            document.getElementById("warranty").innerHTML = 55;
+
+            insuranceValue = 10;
+
+        } else {
+
+            document.getElementById("warranty").innerHTML = 0;
+
+            insuranceValue = 0;
+
+        }
+
+    }
+
+    function quantity() {
+
+        var el2 = document.getElementById("days");
+
+        numberOfDays = el2.value;
+
+        if (rateValue == 0) {
+
+            alert("please select a model");
+
+            return;
+
+        }
+
+    }
+
+    function calcCostPerDay() {
+
+        costPerDay = parseFloat(rateValue) + -parseFloat(rateValue) * parseFloat(discountValue) + parseFloat(insuranceValue) + parseFloat(driversValue);
+
+        document.getElementById("cost-per-day").innerHTML = costPerDay;
+
+        calcTotal();
+
+    }
+
+    function calcTotal() {
+
+        totalCost = parseFloat(costPerDay) * parseFloat(numberOfDays);
+
+        document.getElementById("total-cost").innerHTML = totalCost;
+
+    }
+
+    function rest() {
+
+        document.getElementById("myForm").reset();
+
+        document.getElementById("daily-rate").innerHTML = 0;
+
+        document.getElementById("discount").innerHTML = 0;
+
+        document.getElementById("insurance").innerHTML = 0;
+
+        document.getElementById("numberOfDrivers").innerHTML = 0;
+
+        document.getElementById("cost-per-day").innerHTML = 0;
+
+        document.getElementById("total-cost").innerHTML = 0;
+
+        document.getElementById("chk-box").innerHTML = 0;
+
+        totalCost = 0;
+
+        costPerDay = 0;
+
+        rateValue = 0;
+
+        discountValue = 0;
+
+        insuranceValue = 0;
+
+        driversValue = 0;
+
+        numberOfDays = 0;
+
+        document.getElementById("date").valueAsNumber = Date.now();
+
+    }
+
+    function validationToContinue() {
+
+        var now = new Date().getTime();
+
+        let x = document.forms["myForm"]["date"].value;
+
+        var inputDate = new Date(x).getTime();
+
+        console.log("this is input: " + inputDate);
+
+        console.log("this is now: " + now);
+
+        if (inputDate < now) {
+
+            alert("please enter a valid date");
+
+            return false;
+
+        }
+
+    }
+
+
+</script>
+
+</body>
+
+</html>
+
